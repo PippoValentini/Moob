@@ -1,0 +1,14 @@
+C:\Users\philv\source\repos\Moob\Launcherr\bin\Debug\net8.0\Launcherr.exe
+C:\Users\philv\source\repos\Moob\Launcherr\bin\Debug\net8.0\Launcherr.deps.json
+C:\Users\philv\source\repos\Moob\Launcherr\bin\Debug\net8.0\Launcherr.runtimeconfig.json
+C:\Users\philv\source\repos\Moob\Launcherr\bin\Debug\net8.0\Launcherr.dll
+C:\Users\philv\source\repos\Moob\Launcherr\bin\Debug\net8.0\Launcherr.pdb
+C:\Users\philv\source\repos\Moob\Launcherr\obj\Debug\net8.0\Launcherr.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\philv\source\repos\Moob\Launcherr\obj\Debug\net8.0\Launcherr.AssemblyInfoInputs.cache
+C:\Users\philv\source\repos\Moob\Launcherr\obj\Debug\net8.0\Launcherr.AssemblyInfo.cs
+C:\Users\philv\source\repos\Moob\Launcherr\obj\Debug\net8.0\Launcherr.csproj.CoreCompileInputs.cache
+C:\Users\philv\source\repos\Moob\Launcherr\obj\Debug\net8.0\Launcherr.dll
+C:\Users\philv\source\repos\Moob\Launcherr\obj\Debug\net8.0\refint\Launcherr.dll
+C:\Users\philv\source\repos\Moob\Launcherr\obj\Debug\net8.0\Launcherr.pdb
+C:\Users\philv\source\repos\Moob\Launcherr\obj\Debug\net8.0\Launcherr.genruntimeconfig.cache
+C:\Users\philv\source\repos\Moob\Launcherr\obj\Debug\net8.0\ref\Launcherr.dll
