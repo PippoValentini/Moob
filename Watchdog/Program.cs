@@ -9,11 +9,8 @@ using Telegram.Bot.Types.ReplyMarkups;
 // 1- Clonare la repo di git
 // 2- scaricare .NET 8 RunTime per console app --> https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.19/dotnet-runtime-8.0.19-win-x64.exe
 
-// completare il comando stop (con slash o con bottone)
-// finchè non è disponiblie lo stop, per chiudere WatchdogBot si può usare il Task Manager -->
+// per chiudere WatchdogBot si può usare il Task Manager -->
 // usa "ctrl + shift + esc" per aprire il Task Manager, clicca su dettagli, cerca "WatchdogBot.exe" e termina il processo
-
-//provare a tenere watchdog bot sempre in esecuzione, quando il pc si accende
 
 
 internal class Program
@@ -21,7 +18,7 @@ internal class Program
     static string green = "✅";
     static string red = "❌";
 
-    static string BotToken = "8394532079:AAE77C008EiAFAVQR76__KnPQ4we9bTUTpQ"; // Token del bot
+    static string BotToken = "8431732585:AAGFBe6UFrILdXMNtV9vZvmcq03rZ6UT4Xo"; // Token del bot
     static long PippoId = 6341619196;  // Telegram user ID
 
     static ITelegramBotClient botClient = new TelegramBotClient(BotToken);
@@ -75,11 +72,10 @@ internal class Program
     new KeyboardButton[] { new KeyboardButton("KA") },
     new KeyboardButton[] { new KeyboardButton("U") },
     new KeyboardButton[] { new KeyboardButton("K FG") },
-    new KeyboardButton[] { new KeyboardButton("KAR") },
-    new KeyboardButton[] { new KeyboardButton("KONEM") },
-    new KeyboardButton[] { new KeyboardButton("KTENS") },
+    new KeyboardButton[] { new KeyboardButton("K MW") },
+    //new KeyboardButton[] { new KeyboardButton("KONEM") },//si può sostituire
+    //new KeyboardButton[] { new KeyboardButton("KTENS") },//si può sostituire
     new KeyboardButton[] { new KeyboardButton("SD") },
-    new KeyboardButton[] { new KeyboardButton("STOP") }
 })
                 {
                     ResizeKeyboard = true
@@ -88,22 +84,16 @@ internal class Program
                 await bot.SendTextMessageAsync(chatId, "Welcome back Master", replyMarkup: keyboard);
                 break;
 
-            case "STOP":  // aggiungi anche questo per accettare stop senza slash
-                await bot.SendTextMessageAsync(chatId, "Bot in chiusura. Bye!");
-                Environment.Exit(0);
-                break;
-
-
             case "KA":
                 KillAll();
-                await bot.SendTextMessageAsync(chatId, ".");
+                await bot.SendTextMessageAsync(chatId, "Killing All");
                 break;
 
             case "K FG":
                 KillTelegram();
                 KillFallGuys();
-                KillFallGuysLauncher();
-                await bot.SendTextMessageAsync(chatId, ".");
+                KillEpicGames();
+                await bot.SendTextMessageAsync(chatId, "Killing Fall Guys");
                 break;
 
             case "U":
@@ -115,23 +105,24 @@ internal class Program
                 ShutdownPc();
                 break;
 
-            case "KAR":
-                KillAll();
-                await bot.SendTextMessageAsync(chatId, ".");
-                await bot.SendTextMessageAsync(chatId, "Reaction still not implemented");
+            case "K MW":
+                KillTelegram();
+                KillMakeWay();
+                KillEpicGames();
+                await bot.SendTextMessageAsync(chatId, "Killing Make Way");
                 break;
 
-            case "KONEM":
-                await Task.Delay(60000);
-                KillAll();
-                await bot.SendTextMessageAsync(chatId, ".");
-                break;
+            //case "KONEM"://si può sostituire
+            // await Task.Delay(60000);
+            // KillAll();
+            // await bot.SendTextMessageAsync(chatId, ".");
+            // break;
 
-            case "KTENS":
-                await Task.Delay(10000);
-                KillAll();
-                await bot.SendTextMessageAsync(chatId, ".");
-                break;
+            //case "KTENS"://si può sostituire
+            // await Task.Delay(10000);
+            // KillAll();
+            // await bot.SendTextMessageAsync(chatId, ".");
+            // break;
 
             default:
                 await bot.SendTextMessageAsync(chatId, "I don't understand...");
@@ -148,10 +139,10 @@ internal class Program
     static async Task UpdateUser()
     {
         KillTelegram();
-        await SendStatus("FL", "EpicGamesLauncher");
+        await SendStatus("EG", "EpicGamesLauncher");
         await SendStatus("F", "FallGuys_client_game");
-        await SendStatus("D", "Discord");
-        await SendStatus("R", "RainbowSix");
+        await SendStatus("MW", "Make Way");
+        //await SendStatus("R", "RainbowSix");//si può sostituire
     }
 
     static async Task SendStatus(string prefix, string processName)
@@ -175,18 +166,18 @@ internal class Program
     }
 
     static void KillFallGuys() => KillProcess("FallGuys_client_game");
-    static void KillFallGuysLauncher() => KillProcess("EpicGamesLauncher");
+    static void KillEpicGames() => KillProcess("EpicGamesLauncher");
     static void KillTelegram() => KillProcess("Telegram");
-    static void KillDiscord() => KillProcess("Discord");
-    static void KillRainbow6Siege() => KillProcess("RainbowSix");
+    static void KillMakeWay() => KillProcess("Make Way");
+    static void KillRainbow6Siege() => KillProcess("RainbowSix");//si può sostituire
 
     static void KillAll()
     {
         KillFallGuys();
-        KillFallGuysLauncher();
+        KillEpicGames();
         KillTelegram();
-        KillDiscord();
-        KillRainbow6Siege();
+        KillMakeWay();
+        //KillRainbow6Siege();KillMakeWay
     }
 
     static void ShutdownPc()
